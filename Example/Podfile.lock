@@ -1,0 +1,18 @@
+PODS:
+  - YJUtils (1.0.0):
+    - YJUtils/YJAudioPlayer (= 1.0.0)
+  - YJUtils/YJAudioPlayer (1.0.0)
+
+DEPENDENCIES:
+  - YJUtils (from `../`)
+
+EXTERNAL SOURCES:
+  YJUtils:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  YJUtils: 62fbf301b9f3c0ef84532bb9a6b20f1d53d3af8a
+
+PODFILE CHECKSUM: a37f74e266ecb0fdba059c263419c0d1044f5000
+
+COCOAPODS: 1.7.0.beta.3
