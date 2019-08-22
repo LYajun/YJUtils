@@ -68,25 +68,20 @@
                                 <color key="progressTintColor" red="0.01176470588" green="0.74117647060000003" blue="0.23529411759999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="trackTintColor" red="0.65490196079999996" green="0.65490196079999996" blue="0.65490196079999996" alpha="1" colorSpace="calibratedRGB"/>
                             </progressView>
-                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="bl8-9k-gzx">
-                                <rect key="frame" x="20" y="130" width="335" height="2"/>
-                                <color key="progressTintColor" red="1" green="0.59999999999999998" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="trackTintColor" red="0.65490196079999996" green="0.65490196079999996" blue="0.65490196079999996" alpha="1" colorSpace="calibratedRGB"/>
-                            </progressView>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="IVa-cY-lDa">
-                                <rect key="frame" x="18" y="172" width="339" height="31"/>
+                                <rect key="frame" x="18" y="150" width="339" height="31"/>
                                 <connections>
                                     <action selector="sliderVauleChange:" destination="whP-gf-Uak" eventType="valueChanged" id="2LB-Rs-7uk"/>
                                 </connections>
                             </slider>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gkC-e4-2fC">
-                                <rect key="frame" x="164.5" y="222" width="46" height="21"/>
+                                <rect key="frame" x="164.5" y="200" width="46" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IYY-pa-uaT">
-                                <rect key="frame" x="164.5" y="253" width="46" height="21"/>
+                                <rect key="frame" x="164.5" y="231" width="46" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -115,28 +110,25 @@
                             <constraint firstItem="4bh-W1-7Wo" firstAttribute="centerX" secondItem="TpU-gO-2f1" secondAttribute="centerX" id="5EJ-bi-88q"/>
                             <constraint firstItem="4bh-W1-7Wo" firstAttribute="centerY" secondItem="TpU-gO-2f1" secondAttribute="centerY" id="6au-Hb-djn"/>
                             <constraint firstItem="IVa-cY-lDa" firstAttribute="centerX" secondItem="TpU-gO-2f1" secondAttribute="centerX" id="6jj-H7-jj5"/>
+                            <constraint firstItem="IVa-cY-lDa" firstAttribute="top" secondItem="bbj-SO-kDQ" secondAttribute="bottom" constant="40" id="Ctc-0W-Iel"/>
                             <constraint firstItem="bbj-SO-kDQ" firstAttribute="leading" secondItem="TpU-gO-2f1" secondAttribute="leading" constant="20" id="OdM-gx-fzC"/>
                             <constraint firstItem="IVa-cY-lDa" firstAttribute="leading" secondItem="TpU-gO-2f1" secondAttribute="leading" constant="20" id="OoH-GJ-eoO"/>
-                            <constraint firstItem="bl8-9k-gzx" firstAttribute="centerX" secondItem="TpU-gO-2f1" secondAttribute="centerX" id="TJP-6d-EqR"/>
-                            <constraint firstItem="IVa-cY-lDa" firstAttribute="top" secondItem="bl8-9k-gzx" secondAttribute="bottom" constant="40" id="Wvb-1e-CdH"/>
                             <constraint firstItem="HZl-0Z-vBT" firstAttribute="top" secondItem="LjK-yL-ISz" secondAttribute="bottom" constant="20" id="XOL-4l-URx"/>
                             <constraint firstItem="IYY-pa-uaT" firstAttribute="top" secondItem="gkC-e4-2fC" secondAttribute="bottom" constant="10" id="ZIn-kP-doq"/>
                             <constraint firstItem="LDF-ic-Eba" firstAttribute="centerX" secondItem="TpU-gO-2f1" secondAttribute="centerX" id="ecH-fA-GiM"/>
                             <constraint firstItem="LjK-yL-ISz" firstAttribute="top" secondItem="4bh-W1-7Wo" secondAttribute="bottom" constant="20" id="f8p-iZ-KoS"/>
                             <constraint firstItem="LDF-ic-Eba" firstAttribute="top" secondItem="HZl-0Z-vBT" secondAttribute="bottom" constant="20" id="h6H-lE-Oio"/>
-                            <constraint firstItem="bl8-9k-gzx" firstAttribute="top" secondItem="bbj-SO-kDQ" secondAttribute="bottom" constant="20" id="hOY-lN-dUt"/>
                             <constraint firstItem="LjK-yL-ISz" firstAttribute="centerX" secondItem="TpU-gO-2f1" secondAttribute="centerX" id="l35-4d-jej"/>
                             <constraint firstItem="gkC-e4-2fC" firstAttribute="top" secondItem="IVa-cY-lDa" secondAttribute="bottom" constant="20" id="qo6-6n-mhW"/>
                             <constraint firstItem="bbj-SO-kDQ" firstAttribute="top" secondItem="uEw-UM-LJ8" secondAttribute="bottom" constant="44" id="sqe-J1-O6D"/>
                             <constraint firstItem="IYY-pa-uaT" firstAttribute="centerX" secondItem="TpU-gO-2f1" secondAttribute="centerX" id="tMp-s6-0rU"/>
-                            <constraint firstItem="bl8-9k-gzx" firstAttribute="leading" secondItem="TpU-gO-2f1" secondAttribute="leading" constant="20" id="zmv-UZ-CIA"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="e9H-13-Z9t"/>
                     <connections>
                         <outlet property="bufProgressView" destination="bbj-SO-kDQ" id="jNX-aQ-v2t"/>
                         <outlet property="currentTimeLab" destination="gkC-e4-2fC" id="ZzI-Af-5w1"/>
-                        <outlet property="playProgressView" destination="bl8-9k-gzx" id="9tK-Sm-hZ1"/>
+                        <outlet property="slider" destination="IVa-cY-lDa" id="NR7-8L-QiC"/>
                         <outlet property="totalTimeLab" destination="IYY-pa-uaT" id="YIE-9Z-MsX"/>
                     </connections>
                 </viewController>

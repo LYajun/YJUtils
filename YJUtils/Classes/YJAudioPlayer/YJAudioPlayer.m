@@ -90,7 +90,7 @@ static NSString * const kPlaybackLikelyToKeepUp   = @"playbackLikelyToKeepUp";
     int32_t timeScale = self.audioPlayer.currentItem.asset.duration.timescale;
     CMTime cmTime = CMTimeMakeWithSeconds(time, timeScale);
     __weak typeof(self) weakSelf = self;
-    [_audioPlayer seekToTime:cmTime toleranceBefore:kCMTimeZero toleranceAfter:kCMTimeZero completionHandler:^(BOOL finished) {
+    [self.audioPlayer seekToTime:cmTime toleranceBefore:kCMTimeZero toleranceAfter:kCMTimeZero completionHandler:^(BOOL finished) {
         if (finished) {
             weakSelf.isSeekTime = YES;
         }
@@ -108,6 +108,12 @@ static NSString * const kPlaybackLikelyToKeepUp   = @"playbackLikelyToKeepUp";
     
     AVPlayerItem *currentItem = [AVPlayerItem playerItemWithURL:url];
     [self.audioPlayer replaceCurrentItemWithPlayerItem:currentItem];
+    
+    if (@available(iOS 10.0, *)) {
+        // 针对播放网络音频很慢，需要等几秒的问题
+        self.audioPlayer.automaticallyWaitsToMinimizeStalling = NO;
+    }
+    
     [self addNotification];
     [self addObserverWithPlayerItem:currentItem];
 }

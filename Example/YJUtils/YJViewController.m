@@ -10,21 +10,43 @@
 #import <YJUtils/YJAudioPlayer.h>
 
 @interface YJViewController ()<YJAudioPlayerDelegate>
+@property (weak, nonatomic) IBOutlet UISlider *slider;
 @property (nonatomic,strong) YJAudioPlayer *audioPlayer;
 @property (weak, nonatomic) IBOutlet UILabel *currentTimeLab;
-@property (weak, nonatomic) IBOutlet UIProgressView *playProgressView;
 @property (weak, nonatomic) IBOutlet UILabel *totalTimeLab;
 @property (weak, nonatomic) IBOutlet UIProgressView *bufProgressView;
+
+@property (nonatomic, assign) BOOL isSliderMoving;
 @end
 
 @implementation YJViewController
 
 - (void)viewDidLoad{
     [super viewDidLoad];
-    NSString *urlStr = @"http:/192.168.129.129:10145/CoursewareResFile/bktea5/eabed9c81eed492f86877b518dbd66cf/res/0/1/f8a7660cbc854e199cde7100eb94527e/data.mp3";
+    NSString *urlStr = @"http://192.168.129.129:10148//lgftp/lgzyk/xl/Speaking/1/unit 3/unit 3.mp4";
     self.audioPlayer = [[YJAudioPlayer alloc] init];
     self.audioPlayer.delegate = self;
     self.audioPlayer.audioUrl = urlStr;
+    
+    [self.slider addTarget:self action:@selector(sliderTouchDown) forControlEvents:UIControlEventTouchDown];
+    [self.slider addTarget:self action:@selector(sliderTouchUpInside) forControlEvents:UIControlEventTouchUpInside];
+    [self.slider addTarget:self action:@selector(sliderTouchUpOutside) forControlEvents:UIControlEventTouchUpOutside];
+    [self.slider addTarget:self action:@selector(sliderValueChanged:) forControlEvents:UIControlEventValueChanged];
+}
+- (void)sliderTouchDown {
+    _isSliderMoving = YES;
+}
+
+- (void)sliderTouchUpInside {
+    _isSliderMoving = NO;
+}
+
+- (void)sliderTouchUpOutside {
+    _isSliderMoving = NO;
+}
+- (void)sliderValueChanged:(UISlider *)sender{
+    _isSliderMoving = NO;
+    [self.audioPlayer seekToSecondTime:_audioPlayer.totalDuration * sender.value];
 }
 - (IBAction)play:(id)sender {
     [self.audioPlayer play];
@@ -58,7 +80,9 @@
     self.currentTimeLab.text = [NSString stringWithFormat:@"%02li:%02li",minute,second];
     
     
-    self.playProgressView.progress = progress;
+    if (!_isSliderMoving) {
+        _slider.value = progress;
+    }
 }
 - (void)yj_audioPlayerCurrentBufferSeconds:(NSTimeInterval)seconds progress:(CGFloat)progress{
     self.bufProgressView.progress = progress;
@@ -69,5 +93,11 @@
 }
 - (void)yj_audioPlayerEndInterruption{
     NSLog(@"结束中断");
+}
+- (void)yj_audioPlayerPlaybackBufferEmpty{
+    NSLog(@"yj_audioPlayerPlaybackBufferEmpty");
+}
+- (void)yj_audioPlayerPlaybackLikelyToKeepUp{
+    NSLog(@"yj_audioPlayerPlaybackLikelyToKeepUp");
 }
 @end
