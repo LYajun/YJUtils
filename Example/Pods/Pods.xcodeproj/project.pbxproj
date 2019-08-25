@@ -7,16 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		04D2079726309A5A39AE6D837C7EFA27 /* YJAudioPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 26D2CDCB7F40C4B4A5BA4EA4CBB2211F /* YJAudioPlayer.m */; };
+		02566D1308A33E3F9475B078BF51011F /* YJUtils-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F480DCD634A6E49E85987399D4F2B2FC /* YJUtils-dummy.m */; };
 		0EC37B0A96D7CDBBA06AA0C1C7CE3F92 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB4607EFCA7C5F75397649E792E2AFCB /* Foundation.framework */; };
+		1580F6D210E7869667766E06809FA675 /* YJAudioPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 523CAE7492CCA74F481416E61A0BEE68 /* YJAudioPlayer.m */; };
 		19C2E690CB50577DEB96753E5B25EC42 /* Pods-YJUtils_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 00ACBD11B1B6057779489522577237FC /* Pods-YJUtils_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		264E9743975558D3B9250A8EBF502485 /* YJAudioMerger.h in Headers */ = {isa = PBXBuildFile; fileRef = BD33BCBFD05B23A3DB08A56D371D3F7F /* YJAudioMerger.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2AB4CEFEB1D9ECD4F6FC578196788D8B /* Pods-YJUtils_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 43A1169168D30D1D470A13B2E2DBBF03 /* Pods-YJUtils_Tests-dummy.m */; };
-		302072FE3CB78EB2CAC808F8B73500FA /* YJAudioPlayer.h in Headers */ = {isa = PBXBuildFile; fileRef = F507CBEA0604E6BAADC15A3F8138A293 /* YJAudioPlayer.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		8E8A5B22A516B9947B687604967A6996 /* YJUtils-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 1997198E897ACBE870CB2C2B8D2E2096 /* YJUtils-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		598ADBE7123BEB8A54F8B1A83E578414 /* YJUtils-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = AB5CEFDBB428A4F8EF3C5EDDB1C2C6D6 /* YJUtils-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9FB9D05F1C2D64F30526F4874C79C799 /* Pods-YJUtils_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A65954508F732921710F7168AEF86D1 /* Pods-YJUtils_Example-dummy.m */; };
+		A06DEA92A3C1105D1A58050680BAF7A2 /* YJAudioPlayer.h in Headers */ = {isa = PBXBuildFile; fileRef = 529DA606AFA0905A5625657A044C8AEB /* YJAudioPlayer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A3CDDBFD1DFFB2F174633ED3177329D5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB4607EFCA7C5F75397649E792E2AFCB /* Foundation.framework */; };
-		C26251438000F6A86D5EE0F5748E23E4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB4607EFCA7C5F75397649E792E2AFCB /* Foundation.framework */; };
-		E4144F00A70F737701413A6A73AB2ED8 /* YJUtils-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F81A53F724A0097D4C438E868D01755E /* YJUtils-dummy.m */; };
+		A94A5C6DD7FE0DFE405C250283CF6268 /* YJAudioMerger.m in Sources */ = {isa = PBXBuildFile; fileRef = E594187942319880EA663D63CB2A2CAE /* YJAudioMerger.m */; };
+		D2D9CF4C3DA4E9D33900AE5E307FADE9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB4607EFCA7C5F75397649E792E2AFCB /* Foundation.framework */; };
 		E9E39CDD9ED3CC03694DA16C5E21B70A /* Pods-YJUtils_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 4056B80C25A5C393C9006E1F7D32EB1D /* Pods-YJUtils_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
@@ -40,36 +42,38 @@
 /* Begin PBXFileReference section */
 		00ACBD11B1B6057779489522577237FC /* Pods-YJUtils_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-YJUtils_Tests-umbrella.h"; sourceTree = "<group>"; };
 		18E30E2281CB7ACE483330C8E39787A3 /* Pods-YJUtils_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-YJUtils_Tests.modulemap"; sourceTree = "<group>"; };
-		1997198E897ACBE870CB2C2B8D2E2096 /* YJUtils-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "YJUtils-umbrella.h"; sourceTree = "<group>"; };
 		1A65954508F732921710F7168AEF86D1 /* Pods-YJUtils_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-YJUtils_Example-dummy.m"; sourceTree = "<group>"; };
 		1E25D4DB23921BB11C10B8E4313D122D /* Pods-YJUtils_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-YJUtils_Example-frameworks.sh"; sourceTree = "<group>"; };
-		26D2CDCB7F40C4B4A5BA4EA4CBB2211F /* YJAudioPlayer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = YJAudioPlayer.m; path = YJUtils/Classes/YJAudioPlayer/YJAudioPlayer.m; sourceTree = "<group>"; };
 		2B2C8A49596FB38A32A1B47519A5DBBA /* Pods_YJUtils_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_YJUtils_Example.framework; path = "Pods-YJUtils_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2DC2C038298402AB05E0A88D0F813B59 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
 		2F975D5AA9145D2D2FE78F6C8DC3C135 /* Pods-YJUtils_Tests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-YJUtils_Tests-Info.plist"; sourceTree = "<group>"; };
 		3AF836BAE8A2FE9B30DA6356E03FB00D /* Pods-YJUtils_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-YJUtils_Example-acknowledgements.plist"; sourceTree = "<group>"; };
 		4056B80C25A5C393C9006E1F7D32EB1D /* Pods-YJUtils_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-YJUtils_Example-umbrella.h"; sourceTree = "<group>"; };
 		40D096210E17CDA8511874CB2A123A29 /* Pods-YJUtils_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-YJUtils_Example.modulemap"; sourceTree = "<group>"; };
 		43A1169168D30D1D470A13B2E2DBBF03 /* Pods-YJUtils_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-YJUtils_Tests-dummy.m"; sourceTree = "<group>"; };
-		4A3F75C08C2EAE5927DF3194D3DE8124 /* YJUtils-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "YJUtils-Info.plist"; sourceTree = "<group>"; };
 		4E412DDE6D86AB5097785C7C27FC5FAE /* YJUtils.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = YJUtils.framework; path = YJUtils.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		523CAE7492CCA74F481416E61A0BEE68 /* YJAudioPlayer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = YJAudioPlayer.m; path = YJUtils/Classes/YJAudioPlayer/YJAudioPlayer.m; sourceTree = "<group>"; };
+		529DA606AFA0905A5625657A044C8AEB /* YJAudioPlayer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = YJAudioPlayer.h; path = YJUtils/Classes/YJAudioPlayer/YJAudioPlayer.h; sourceTree = "<group>"; };
 		5DD9F5C7517D358ED1A02A7B0CC489F3 /* Pods-YJUtils_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-YJUtils_Example.release.xcconfig"; sourceTree = "<group>"; };
-		76AD3BE05FBA512387CF7FE209754949 /* YJUtils.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = YJUtils.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		811D1F7E5CA463A6A90646552AF96B4B /* YJUtils-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "YJUtils-prefix.pch"; sourceTree = "<group>"; };
+		7E42E180AD8FF8006073FCAA1042A074 /* YJUtils-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "YJUtils-prefix.pch"; sourceTree = "<group>"; };
+		8133AC3A95A83E8B17D6B3BF3FF88594 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		8A83F7CF2636A2FE464BC687D249DF2B /* YJUtils.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = YJUtils.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		8CBC9047734874BC5CEDCB3B11257CC5 /* Pods-YJUtils_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-YJUtils_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		9393D666AE6D017DD59BA78916E030EA /* Pods-YJUtils_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-YJUtils_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		9645A4F69770788FD247F9382392110C /* Pods-YJUtils_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-YJUtils_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		AB5CEFDBB428A4F8EF3C5EDDB1C2C6D6 /* YJUtils-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "YJUtils-umbrella.h"; sourceTree = "<group>"; };
+		BD33BCBFD05B23A3DB08A56D371D3F7F /* YJAudioMerger.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = YJAudioMerger.h; path = YJUtils/Classes/YJAudioMerger/YJAudioMerger.h; sourceTree = "<group>"; };
 		C2390E55FC9043BEA5F3FF614B537B37 /* Pods-YJUtils_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-YJUtils_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		C64499B5BDB3BFCE7FDA7288FAA3B2CE /* Pods-YJUtils_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-YJUtils_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
+		C8180D753A98C50D3BF07654E92BE47E /* YJUtils-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "YJUtils-Info.plist"; sourceTree = "<group>"; };
 		CB4607EFCA7C5F75397649E792E2AFCB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		CCE560A7B3B458CB883B163D67C2F684 /* Pods-YJUtils_Example-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-YJUtils_Example-Info.plist"; sourceTree = "<group>"; };
-		CF6F2EDD767E5885284374D683B1DCD2 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		D1D14A7AC7BE1FEFAEFDA8E9A0A0ADEF /* YJUtils.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = YJUtils.modulemap; sourceTree = "<group>"; };
+		D9DAC895647C20A3871AB82DC1D89993 /* YJUtils.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = YJUtils.xcconfig; sourceTree = "<group>"; };
 		DA3E98CAD748FC31F99083CE65054BBB /* Pods_YJUtils_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_YJUtils_Tests.framework; path = "Pods-YJUtils_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		DFFECB2D32CB58A648EF5BA1E1772EAC /* YJUtils.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = YJUtils.xcconfig; sourceTree = "<group>"; };
-		F3C3AE80EDC4E9E3F50F63110CF18885 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
-		F507CBEA0604E6BAADC15A3F8138A293 /* YJAudioPlayer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = YJAudioPlayer.h; path = YJUtils/Classes/YJAudioPlayer/YJAudioPlayer.h; sourceTree = "<group>"; };
-		F81A53F724A0097D4C438E868D01755E /* YJUtils-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "YJUtils-dummy.m"; sourceTree = "<group>"; };
-		FA90E967CF1A41D4553963907D46C939 /* YJUtils.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = YJUtils.modulemap; sourceTree = "<group>"; };
+		E594187942319880EA663D63CB2A2CAE /* YJAudioMerger.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = YJAudioMerger.m; path = YJUtils/Classes/YJAudioMerger/YJAudioMerger.m; sourceTree = "<group>"; };
+		F480DCD634A6E49E85987399D4F2B2FC /* YJUtils-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "YJUtils-dummy.m"; sourceTree = "<group>"; };
 		FE0D898254E0F343F1A4E39087E4E1F2 /* Pods-YJUtils_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-YJUtils_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -82,6 +86,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		59EC9A5F08BD082800D7ECF8155CDA7F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D2D9CF4C3DA4E9D33900AE5E307FADE9 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		ECA728AA70FFFC2576EA578300D14393 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -90,34 +102,60 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F0FC2590449106140FD8D8A1FD32032E /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				C26251438000F6A86D5EE0F5748E23E4 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2FE009E63EF998DF93E1E0965B7BE094 /* YJUtils */ = {
+		0780DD9878AF010C2069768C7DDE57AF /* Development Pods */ = {
 			isa = PBXGroup;
 			children = (
-				FED359EFB61146DB5ED7F136A7A4BCB0 /* Pod */,
-				B44C7B15FC9CCAB1905256CB274D9006 /* Support Files */,
-				E77AA1D6C93C18A2AC94C6F78EAD4503 /* YJAudioPlayer */,
+				41CBC17E250D6D7F22BA7BF3510A2ADD /* YJUtils */,
+			);
+			name = "Development Pods";
+			sourceTree = "<group>";
+		};
+		208F748DD9A634A02E56435D2B8A00C4 /* YJAudioPlayer */ = {
+			isa = PBXGroup;
+			children = (
+				529DA606AFA0905A5625657A044C8AEB /* YJAudioPlayer.h */,
+				523CAE7492CCA74F481416E61A0BEE68 /* YJAudioPlayer.m */,
+			);
+			name = YJAudioPlayer;
+			sourceTree = "<group>";
+		};
+		2A824DF63A75CDF56E6B8C2F65D304F4 /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				2DC2C038298402AB05E0A88D0F813B59 /* LICENSE */,
+				8133AC3A95A83E8B17D6B3BF3FF88594 /* README.md */,
+				8A83F7CF2636A2FE464BC687D249DF2B /* YJUtils.podspec */,
+			);
+			name = Pod;
+			sourceTree = "<group>";
+		};
+		3096C65C9B4E4A1346CDF9500E1F7ECE /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				D1D14A7AC7BE1FEFAEFDA8E9A0A0ADEF /* YJUtils.modulemap */,
+				D9DAC895647C20A3871AB82DC1D89993 /* YJUtils.xcconfig */,
+				F480DCD634A6E49E85987399D4F2B2FC /* YJUtils-dummy.m */,
+				C8180D753A98C50D3BF07654E92BE47E /* YJUtils-Info.plist */,
+				7E42E180AD8FF8006073FCAA1042A074 /* YJUtils-prefix.pch */,
+				AB5CEFDBB428A4F8EF3C5EDDB1C2C6D6 /* YJUtils-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "Example/Pods/Target Support Files/YJUtils";
+			sourceTree = "<group>";
+		};
+		41CBC17E250D6D7F22BA7BF3510A2ADD /* YJUtils */ = {
+			isa = PBXGroup;
+			children = (
+				2A824DF63A75CDF56E6B8C2F65D304F4 /* Pod */,
+				3096C65C9B4E4A1346CDF9500E1F7ECE /* Support Files */,
+				CF326ACB652C2020EB3BD6DDD5669F4D /* YJAudioMerger */,
+				208F748DD9A634A02E56435D2B8A00C4 /* YJAudioPlayer */,
 			);
 			name = YJUtils;
 			path = ../..;
-			sourceTree = "<group>";
-		};
-		34A878F8603FC55081F0A8DFBE5F06A1 /* Development Pods */ = {
-			isa = PBXGroup;
-			children = (
-				2FE009E63EF998DF93E1E0965B7BE094 /* YJUtils */,
-			);
-			name = "Development Pods";
 			sourceTree = "<group>";
 		};
 		73264A89E2F430C52B575222CF93DEA0 /* Targets Support Files */ = {
@@ -135,20 +173,6 @@
 				CB4607EFCA7C5F75397649E792E2AFCB /* Foundation.framework */,
 			);
 			name = iOS;
-			sourceTree = "<group>";
-		};
-		B44C7B15FC9CCAB1905256CB274D9006 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				FA90E967CF1A41D4553963907D46C939 /* YJUtils.modulemap */,
-				DFFECB2D32CB58A648EF5BA1E1772EAC /* YJUtils.xcconfig */,
-				F81A53F724A0097D4C438E868D01755E /* YJUtils-dummy.m */,
-				4A3F75C08C2EAE5927DF3194D3DE8124 /* YJUtils-Info.plist */,
-				811D1F7E5CA463A6A90646552AF96B4B /* YJUtils-prefix.pch */,
-				1997198E897ACBE870CB2C2B8D2E2096 /* YJUtils-umbrella.h */,
-			);
-			name = "Support Files";
-			path = "Example/Pods/Target Support Files/YJUtils";
 			sourceTree = "<group>";
 		};
 		BD57FA4E182A716237B9A9BE00549B09 /* Pods-YJUtils_Example */ = {
@@ -182,11 +206,20 @@
 			isa = PBXGroup;
 			children = (
 				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
-				34A878F8603FC55081F0A8DFBE5F06A1 /* Development Pods */,
+				0780DD9878AF010C2069768C7DDE57AF /* Development Pods */,
 				D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */,
 				C88284E8FFC7CEAF971A5544C88A3D1E /* Products */,
 				73264A89E2F430C52B575222CF93DEA0 /* Targets Support Files */,
 			);
+			sourceTree = "<group>";
+		};
+		CF326ACB652C2020EB3BD6DDD5669F4D /* YJAudioMerger */ = {
+			isa = PBXGroup;
+			children = (
+				BD33BCBFD05B23A3DB08A56D371D3F7F /* YJAudioMerger.h */,
+				E594187942319880EA663D63CB2A2CAE /* YJAudioMerger.m */,
+			);
+			name = YJAudioMerger;
 			sourceTree = "<group>";
 		};
 		D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */ = {
@@ -213,37 +246,9 @@
 			path = "Target Support Files/Pods-YJUtils_Tests";
 			sourceTree = "<group>";
 		};
-		E77AA1D6C93C18A2AC94C6F78EAD4503 /* YJAudioPlayer */ = {
-			isa = PBXGroup;
-			children = (
-				F507CBEA0604E6BAADC15A3F8138A293 /* YJAudioPlayer.h */,
-				26D2CDCB7F40C4B4A5BA4EA4CBB2211F /* YJAudioPlayer.m */,
-			);
-			name = YJAudioPlayer;
-			sourceTree = "<group>";
-		};
-		FED359EFB61146DB5ED7F136A7A4BCB0 /* Pod */ = {
-			isa = PBXGroup;
-			children = (
-				CF6F2EDD767E5885284374D683B1DCD2 /* LICENSE */,
-				F3C3AE80EDC4E9E3F50F63110CF18885 /* README.md */,
-				76AD3BE05FBA512387CF7FE209754949 /* YJUtils.podspec */,
-			);
-			name = Pod;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		253C282EEC69226BF8FAB692C9661263 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				302072FE3CB78EB2CAC808F8B73500FA /* YJAudioPlayer.h in Headers */,
-				8E8A5B22A516B9947B687604967A6996 /* YJUtils-umbrella.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		3D27F774D5F88B0914C7B1AB34F3B609 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -257,6 +262,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				19C2E690CB50577DEB96753E5B25EC42 /* Pods-YJUtils_Tests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D0E0998766ACD1D15132268AF2862CFA /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				264E9743975558D3B9250A8EBF502485 /* YJAudioMerger.h in Headers */,
+				A06DEA92A3C1105D1A58050680BAF7A2 /* YJAudioPlayer.h in Headers */,
+				598ADBE7123BEB8A54F8B1A83E578414 /* YJUtils-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -303,12 +318,12 @@
 		};
 		9DC88D63B05739231D3F4BCCADED32DC /* YJUtils */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1C7521653F5C6665CDEA73497D006795 /* Build configuration list for PBXNativeTarget "YJUtils" */;
+			buildConfigurationList = 859CABA641B88852B570CCFB39FBC358 /* Build configuration list for PBXNativeTarget "YJUtils" */;
 			buildPhases = (
-				253C282EEC69226BF8FAB692C9661263 /* Headers */,
-				F33A622E7A42CC8FEF2C9C46E41B5CD6 /* Sources */,
-				F0FC2590449106140FD8D8A1FD32032E /* Frameworks */,
-				7357B9F0154D1F540CBB7CFB093C11BA /* Resources */,
+				D0E0998766ACD1D15132268AF2862CFA /* Headers */,
+				AB7CB8B50F7DA71531C6081D5FC315C8 /* Sources */,
+				59EC9A5F08BD082800D7ECF8155CDA7F /* Frameworks */,
+				558E115547F44B1527219346B695F543 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -348,14 +363,14 @@
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		5A1401E0468A40A9E25A8CE8F5A43535 /* Resources */ = {
+		558E115547F44B1527219346B695F543 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		7357B9F0154D1F540CBB7CFB093C11BA /* Resources */ = {
+		5A1401E0468A40A9E25A8CE8F5A43535 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -380,20 +395,21 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		AB7CB8B50F7DA71531C6081D5FC315C8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A94A5C6DD7FE0DFE405C250283CF6268 /* YJAudioMerger.m in Sources */,
+				1580F6D210E7869667766E06809FA675 /* YJAudioPlayer.m in Sources */,
+				02566D1308A33E3F9475B078BF51011F /* YJUtils-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DFE426BE960F58794F0F426B802ECC9C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				2AB4CEFEB1D9ECD4F6FC578196788D8B /* Pods-YJUtils_Tests-dummy.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		F33A622E7A42CC8FEF2C9C46E41B5CD6 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				04D2079726309A5A39AE6D837C7EFA27 /* YJAudioPlayer.m in Sources */,
-				E4144F00A70F737701413A6A73AB2ED8 /* YJUtils-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -606,38 +622,6 @@
 			};
 			name = Debug;
 		};
-		6A13057BE07B436E273B481EEFAE70AC /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = DFFECB2D32CB58A648EF5BA1E1772EAC /* YJUtils.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/YJUtils/YJUtils-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/YJUtils/YJUtils-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/YJUtils/YJUtils.modulemap";
-				PRODUCT_MODULE_NAME = YJUtils;
-				PRODUCT_NAME = YJUtils;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
 		92F115EBE7FE9790439A3DE45B72051C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C2390E55FC9043BEA5F3FF614B537B37 /* Pods-YJUtils_Tests.debug.xcconfig */;
@@ -671,9 +655,41 @@
 			};
 			name = Debug;
 		};
-		96AE6B5655C7AC1A01CC1F5BCD6F4684 /* Debug */ = {
+		AA305DB99D6B1AE312805DF840B67464 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DFFECB2D32CB58A648EF5BA1E1772EAC /* YJUtils.xcconfig */;
+			baseConfigurationReference = D9DAC895647C20A3871AB82DC1D89993 /* YJUtils.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/YJUtils/YJUtils-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/YJUtils/YJUtils-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/YJUtils/YJUtils.modulemap";
+				PRODUCT_MODULE_NAME = YJUtils;
+				PRODUCT_NAME = YJUtils;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		F7B521C2BFA8B81816BF7FFCEE475EB0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D9DAC895647C20A3871AB82DC1D89993 /* YJUtils.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -739,15 +755,6 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1C7521653F5C6665CDEA73497D006795 /* Build configuration list for PBXNativeTarget "YJUtils" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				96AE6B5655C7AC1A01CC1F5BCD6F4684 /* Debug */,
-				6A13057BE07B436E273B481EEFAE70AC /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		2C80C69F07B7D92CFBB9A139FEC733FC /* Build configuration list for PBXNativeTarget "Pods-YJUtils_Example" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -771,6 +778,15 @@
 			buildConfigurations = (
 				92F115EBE7FE9790439A3DE45B72051C /* Debug */,
 				2F119367780F3AC81329BB86898F055D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		859CABA641B88852B570CCFB39FBC358 /* Build configuration list for PBXNativeTarget "YJUtils" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F7B521C2BFA8B81816BF7FFCEE475EB0 /* Debug */,
+				AA305DB99D6B1AE312805DF840B67464 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

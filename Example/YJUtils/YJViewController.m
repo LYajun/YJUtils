@@ -8,10 +8,12 @@
 
 #import "YJViewController.h"
 #import <YJUtils/YJAudioPlayer.h>
+#import <YJUtils/YJAudioMerger.h>
 
 @interface YJViewController ()<YJAudioPlayerDelegate>
 @property (weak, nonatomic) IBOutlet UISlider *slider;
 @property (nonatomic,strong) YJAudioPlayer *audioPlayer;
+
 @property (weak, nonatomic) IBOutlet UILabel *currentTimeLab;
 @property (weak, nonatomic) IBOutlet UILabel *totalTimeLab;
 @property (weak, nonatomic) IBOutlet UIProgressView *bufProgressView;
@@ -23,9 +25,19 @@
 
 - (void)viewDidLoad{
     [super viewDidLoad];
+   
+}
+
+- (YJAudioPlayer *)audioPlayer{
+    if (!_audioPlayer) {
+        _audioPlayer = [[YJAudioPlayer alloc] init];
+        _audioPlayer.delegate = self;
+    }
+    return _audioPlayer;
+}
+- (void)testAudioPlayer{
+    
     NSString *urlStr = @"http://192.168.129.129:10148//lgftp/lgzyk/xl/Speaking/1/unit 3/unit 3.mp4";
-    self.audioPlayer = [[YJAudioPlayer alloc] init];
-    self.audioPlayer.delegate = self;
     self.audioPlayer.audioUrl = urlStr;
     
     [self.slider addTarget:self action:@selector(sliderTouchDown) forControlEvents:UIControlEventTouchDown];
@@ -33,6 +45,20 @@
     [self.slider addTarget:self action:@selector(sliderTouchUpOutside) forControlEvents:UIControlEventTouchUpOutside];
     [self.slider addTarget:self action:@selector(sliderValueChanged:) forControlEvents:UIControlEventValueChanged];
 }
+
+- (void)testAudioMerger{
+    NSString *audioPath1 = [[NSBundle mainBundle] pathForResource:@"Congratulations1" ofType:@"mp3"];
+    NSString *audioPath2 = [[NSBundle mainBundle] pathForResource:@"keep_trying1" ofType:@"mp3"];
+    NSString *audioPath3 = [[NSBundle mainBundle] pathForResource:@"三全音" ofType:@"mp3"];
+    __weak typeof(self) weakSelf = self;
+    [[YJAudioMerger shareAudioMerger] mergeMoreAudioWithPaths:@[audioPath1,audioPath2,audioPath3] completion:^(BOOL isSuccess) {
+        if (isSuccess) {
+            weakSelf.audioPlayer.audioUrl = [YJAudioMerger shareAudioMerger].outPutFilePath;
+            [weakSelf.audioPlayer play];
+        }
+    }];
+}
+
 - (void)sliderTouchDown {
     _isSliderMoving = YES;
 }
@@ -49,7 +75,8 @@
     [self.audioPlayer seekToSecondTime:_audioPlayer.totalDuration * sender.value];
 }
 - (IBAction)play:(id)sender {
-    [self.audioPlayer play];
+    [self testAudioMerger];
+//    [self.audioPlayer play];
 }
 
 - (IBAction)playAmbient:(id)sender {

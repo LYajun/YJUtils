@@ -10,6 +10,7 @@
 #endif
 #endif
 
+#import "YJAudioMerger.h"
 #import "YJAudioPlayer.h"
 
 FOUNDATION_EXPORT double YJUtilsVersionNumber;

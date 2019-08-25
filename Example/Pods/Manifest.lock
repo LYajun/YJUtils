@@ -1,7 +1,9 @@
 PODS:
-  - YJUtils (1.0.0):
-    - YJUtils/YJAudioPlayer (= 1.0.0)
-  - YJUtils/YJAudioPlayer (1.0.0)
+  - YJUtils (1.0.1):
+    - YJUtils/YJAudioMerger (= 1.0.1)
+    - YJUtils/YJAudioPlayer (= 1.0.1)
+  - YJUtils/YJAudioMerger (1.0.1)
+  - YJUtils/YJAudioPlayer (1.0.1)
 
 DEPENDENCIES:
   - YJUtils (from `../`)
@@ -11,7 +13,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  YJUtils: 62fbf301b9f3c0ef84532bb9a6b20f1d53d3af8a
+  YJUtils: c6757d98b1d1f7eb657093eb148753c595827a5e
 
 PODFILE CHECKSUM: a37f74e266ecb0fdba059c263419c0d1044f5000
 
