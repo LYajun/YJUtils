@@ -99,15 +99,17 @@
     session.shouldOptimizeForNetworkUse = YES;   //优化网络
     
     [session exportAsynchronouslyWithCompletionHandler:^{
-        if (session.status == AVAssetExportSessionStatusCompleted) {
-            if (completion) {
-                completion(YES);
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (session.status == AVAssetExportSessionStatusCompleted) {
+                if (completion) {
+                    completion(YES);
+                }
+            } else {
+                if (completion) {
+                    completion(NO);
+                }
             }
-        } else {
-            if (completion) {
-                completion(NO);
-            }
-        }
+        });
     }];
 }
 
