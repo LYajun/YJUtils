@@ -9,6 +9,8 @@
 #import "YJViewController.h"
 #import <YJUtils/YJAudioPlayer.h>
 #import <YJUtils/YJAudioMerger.h>
+#import <LGAlertHUD/LGAlertHUD.h>
+#import <YJUtils/YJMediaCutter.h>
 
 @interface YJViewController ()<YJAudioPlayerDelegate>
 @property (weak, nonatomic) IBOutlet UISlider *slider;
@@ -45,7 +47,34 @@
     [self.slider addTarget:self action:@selector(sliderTouchUpOutside) forControlEvents:UIControlEventTouchUpOutside];
     [self.slider addTarget:self action:@selector(sliderValueChanged:) forControlEvents:UIControlEventValueChanged];
 }
-
+- (void)testAudioMediaCutter{
+    NSString *urlStr = @"http:/192.168.129.130:10103/lgRs/b0e138098e074d6a928701c9f1c43ec9/84fccdd2232540bd9c3f02f142ae4652.mp3";
+    [YJMediaCutter shareMediaCutter].mediaUrl = urlStr;
+    [YJMediaCutter shareMediaCutter].cutStartTime = 3;
+    [YJMediaCutter shareMediaCutter].cutEndTime = 13;
+    [LGAlert showIndeterminate];
+    [[YJMediaCutter shareMediaCutter] audioCutWithCompletionHandler:^(NSError * _Nullable error) {
+        if (error) {
+            [LGAlert showErrorWithError:error];
+        }else{
+            [LGAlert showSuccessWithStatus:@"裁剪成功"];
+        }
+    }];
+}
+- (void)testVideoMediaCutter{
+    NSString *urlStr = @"http:/192.168.129.130:10103/lgRs/4c11215be924473e80275765fedd0519/9f2f4fc1f74247df9b1b17ed8cefca0a.mp4";
+    [YJMediaCutter shareMediaCutter].mediaUrl = urlStr;
+    [YJMediaCutter shareMediaCutter].cutStartTime = 10;
+    [YJMediaCutter shareMediaCutter].cutEndTime = 20;
+    [LGAlert showIndeterminate];
+    [[YJMediaCutter shareMediaCutter] videoCutWithCompletionHandler:^(NSError * _Nullable error) {
+        if (error) {
+            [LGAlert showErrorWithError:error];
+        }else{
+            [LGAlert showSuccessWithStatus:@"裁剪成功"];
+        }
+    }];
+}
 - (void)testAudioMerger{
     NSString *audioPath1 = [[NSBundle mainBundle] pathForResource:@"Congratulations1" ofType:@"mp3"];
     NSString *audioPath2 = [[NSBundle mainBundle] pathForResource:@"keep_trying1" ofType:@"mp3"];
@@ -75,7 +104,8 @@
     [self.audioPlayer seekToSecondTime:_audioPlayer.totalDuration * sender.value];
 }
 - (IBAction)play:(id)sender {
-    [self testAudioMerger];
+    [self testAudioMediaCutter];
+//    [self testAudioMerger];
 //    [self.audioPlayer play];
 }
 
@@ -87,7 +117,8 @@
     [self.audioPlayer pause];
 }
 - (IBAction)stop:(id)sender {
-    [self.audioPlayer stop];
+//    [self.audioPlayer stop];
+    [[YJMediaCutter shareMediaCutter] removeAllCutFile];
 }
 - (IBAction)sliderVauleChange:(UISlider *)sender {
     NSTimeInterval time = sender.value * self.audioPlayer.totalDuration;

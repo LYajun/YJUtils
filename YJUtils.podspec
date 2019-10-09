@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'YJUtils'
-  s.version          = '1.0.3'
+  s.version          = '1.0.4'
   s.summary          = '工具类'
 
   s.description      = <<-DESC
@@ -29,5 +29,9 @@ TODO: Add long description of the pod here.
 
   s.subspec 'YJAudioMerger' do |audioMerger|
       audioMerger.source_files = 'YJUtils/Classes/YJAudioMerger/**/*'
+  end
+
+  s.subspec 'YJMediaCutter' do |mediaCutter|
+      mediaCutter.source_files = 'YJUtils/Classes/YJMediaCutter/**/*'
   end
 end

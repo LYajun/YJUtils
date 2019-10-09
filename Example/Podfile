@@ -4,7 +4,7 @@ platform :ios, '8.0'
 
 target 'YJUtils_Example' do
   pod 'YJUtils', :path => '../'
-
+  pod 'LGAlertHUD', '1.1.1'
   target 'YJUtils_Tests' do
     inherit! :search_paths
 

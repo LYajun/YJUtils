@@ -1,20 +1,50 @@
 PODS:
-  - YJUtils (1.0.1):
-    - YJUtils/YJAudioMerger (= 1.0.1)
-    - YJUtils/YJAudioPlayer (= 1.0.1)
-  - YJUtils/YJAudioMerger (1.0.1)
-  - YJUtils/YJAudioPlayer (1.0.1)
+  - LGAlertHUD (1.1.1):
+    - LGAlertHUD/AlertView (= 1.1.1)
+    - Masonry
+    - YJExtensions
+  - LGAlertHUD/AlertView (1.1.1):
+    - Masonry
+    - YJExtensions
+  - Masonry (1.1.0)
+  - TFHpple (2.0.0)
+  - YJExtensions (1.1.7):
+    - YJExtensions/Foundation (= 1.1.7)
+    - YJExtensions/UIKit (= 1.1.7)
+  - YJExtensions/Foundation (1.1.7):
+    - TFHpple
+  - YJExtensions/UIKit (1.1.7):
+    - YJExtensions/Foundation
+  - YJUtils (1.0.4):
+    - YJUtils/YJAudioMerger (= 1.0.4)
+    - YJUtils/YJAudioPlayer (= 1.0.4)
+    - YJUtils/YJMediaCutter (= 1.0.4)
+  - YJUtils/YJAudioMerger (1.0.4)
+  - YJUtils/YJAudioPlayer (1.0.4)
+  - YJUtils/YJMediaCutter (1.0.4)
 
 DEPENDENCIES:
+  - LGAlertHUD (= 1.1.1)
   - YJUtils (from `../`)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - LGAlertHUD
+    - Masonry
+    - TFHpple
+    - YJExtensions
 
 EXTERNAL SOURCES:
   YJUtils:
     :path: "../"
 
 SPEC CHECKSUMS:
-  YJUtils: c6757d98b1d1f7eb657093eb148753c595827a5e
+  LGAlertHUD: ef7df9c428b6156e1ac8da437c84fbbaa8f9e6bc
+  Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
+  TFHpple: a916fe0799eb30aa29b2670d14d5868cdd3a5b81
+  YJExtensions: ceb71a840c3276cd4f9d100884de9b0e4dea67f7
+  YJUtils: 848591a11dfb5e6d68b3ba5290c83fa07a85c254
 
-PODFILE CHECKSUM: a37f74e266ecb0fdba059c263419c0d1044f5000
+PODFILE CHECKSUM: a324ebd6dbd27e20456395316542eb48c4944391
 
 COCOAPODS: 1.7.0.beta.3
