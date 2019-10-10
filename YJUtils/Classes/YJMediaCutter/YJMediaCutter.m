@@ -75,15 +75,30 @@
     NSMutableDictionary *dic = [NSMutableDictionary dictionaryWithDictionary:srtInfo];
     NSMutableArray *srtArr = [dic objectForKey:@"srtList"];
     if (srtArr && srtArr.count > 0) {
+        NSMutableArray *arr = [NSMutableArray array];
         for (NSDictionary *srt in srtArr) {
-            CGFloat beginTime = [[srt objectForKey:@"beginTime"] floatValue];
-            CGFloat endTime = [[srt objectForKey:@"endTime"] floatValue];
-            if ((beginTime <= self.cutStartTime && endTime > self.cutStartTime && endTime <= self.cutEndTime) ||
-                (beginTime > self.cutStartTime && beginTime < self.cutEndTime && endTime >= self.cutEndTime)) {
-                [srtArr addObject:srt];
+            CGFloat beginTime = [[srt objectForKey:@"beginTime"] doubleValue];
+            CGFloat endTime = [[srt objectForKey:@"endTime"] doubleValue];
+            if ((endTime > self.cutStartTime && endTime <= self.cutEndTime) ||
+                (beginTime >= self.cutStartTime && beginTime < self.cutEndTime)) {
+                
+                NSMutableDictionary *srt_m = [NSMutableDictionary dictionaryWithDictionary:srt];
+                if (beginTime > self.cutStartTime) {
+                    beginTime = beginTime - self.cutStartTime;
+                }else{
+                    beginTime = 0;
+                }
+                if (endTime > self.cutEndTime) {
+                    endTime = self.cutEndTime - self.cutStartTime;
+                }else{
+                    endTime = endTime - self.cutStartTime;
+                }
+                [srt_m setObject:@(beginTime) forKey:@"beginTime"];
+                [srt_m setObject:@(endTime) forKey:@"endTime"];
+                [arr addObject:srt_m];
             }
         }
-        [dic setObject:srtArr forKey:@"srtList"];
+        [dic setObject:arr forKey:@"srtList"];
     }
     completionHandler(dic);
 }
@@ -145,38 +160,11 @@
     [exporter exportAsynchronouslyWithCompletionHandler:^{
         
         dispatch_async(dispatch_get_main_queue(), ^{
-            switch (exporter.status) {
-                case AVAssetExportSessionStatusUnknown: {
-                    NSLog(@"AVAssetExportSessionStatusUnknown");
-                }  break;
-                case AVAssetExportSessionStatusWaiting: {
-                    NSLog(@"AVAssetExportSessionStatusWaiting");
-                }  break;
-                case AVAssetExportSessionStatusExporting: {
-                    NSLog(@"AVAssetExportSessionStatusExporting");
-                }  break;
-                case AVAssetExportSessionStatusCompleted: {
-                    NSLog(@"AVAssetExportSessionStatusCompleted");
-                    if ([kFileManager fileExistsAtPath:weakSelf.downloadMediaPath]) {
-                        [kFileManager removeItemAtPath:weakSelf.downloadMediaPath error:nil];
-                    }
-                    if (weakSelf.completionHandler) {
-                        weakSelf.completionHandler(nil);
-                    }
-                }  break;
-                case AVAssetExportSessionStatusFailed: {
-                    NSLog(@"AVAssetExportSessionStatusFailed");
-                    if (weakSelf.completionHandler) {
-                        weakSelf.completionHandler([NSError errorWithDomain:@"_YJMediaCutterErrorDamain" code:110 userInfo:@{NSLocalizedDescriptionKey:@"导出失败"}]);
-                    }
-                }  break;
-                case AVAssetExportSessionStatusCancelled: {
-                    NSLog(@"AVAssetExportSessionStatusCancelled");
-                    if (weakSelf.completionHandler) {
-                        weakSelf.completionHandler([NSError errorWithDomain:@"_YJMediaCutterErrorDamain" code:110 userInfo:@{NSLocalizedDescriptionKey:@"导出被取消"}]);
-                    }
-                }  break;
-                default: break;
+            if ([kFileManager fileExistsAtPath:weakSelf.downloadMediaPath]) {
+                [kFileManager removeItemAtPath:weakSelf.downloadMediaPath error:nil];
+            }
+            if (weakSelf.completionHandler) {
+                weakSelf.completionHandler(exporter.error);
             }
         });
     }];
@@ -275,14 +263,40 @@
     NSMutableDictionary *dic = [NSMutableDictionary dictionaryWithDictionary:lrcInfo];
     NSMutableArray *srtArr = [dic objectForKey:@"srtList"];
     if (srtArr && srtArr.count > 0) {
-        for (NSDictionary *srt in srtArr) {
-            CGFloat beginTime = [[srt objectForKey:@"beginTime"] floatValue];
-            if ((beginTime > self.cutStartTime && beginTime < self.cutEndTime) ||
-                beginTime == self.cutStartTime || beginTime == self.cutEndTime) {
-                [srtArr addObject:srt];
+        NSMutableArray *arr = [NSMutableArray array];
+        for (int i = 0 ; i < srtArr.count; i++) {
+            NSDictionary *srt = srtArr[i];
+            CGFloat beginTime = [[srt objectForKey:@"beginTime"] doubleValue];
+            if (i == srtArr.count-1) {
+                if ((beginTime > self.cutStartTime && beginTime < self.cutEndTime) ||
+                    beginTime == self.cutStartTime || beginTime == self.cutEndTime) {
+                    
+                    NSMutableDictionary *srt_m = [NSMutableDictionary dictionaryWithDictionary:srt];
+                    if (beginTime > self.cutStartTime) {
+                        beginTime = beginTime - self.cutStartTime;
+                    }else{
+                        beginTime = 0;
+                    }
+                    [srt_m setObject:@(beginTime) forKey:@"beginTime"];
+                    [arr addObject:srt_m];
+                }
+            }else{
+                NSDictionary *nextSrt = srtArr[i+1];
+                CGFloat endTime = [[nextSrt objectForKey:@"beginTime"] doubleValue];
+                if ((endTime > self.cutStartTime && endTime <= self.cutEndTime) ||
+                    (beginTime >= self.cutStartTime && beginTime < self.cutEndTime)) {
+                    NSMutableDictionary *srt_m = [NSMutableDictionary dictionaryWithDictionary:srt];
+                    if (beginTime > self.cutStartTime) {
+                        beginTime = beginTime - self.cutStartTime;
+                    }else{
+                        beginTime = 0;
+                    }
+                    [srt_m setObject:@(beginTime) forKey:@"beginTime"];
+                    [arr addObject:srt_m];
+                }
             }
         }
-        [dic setObject:srtArr forKey:@"srtList"];
+        [dic setObject:arr forKey:@"srtList"];
     }
     completionHandler(dic);
 }
@@ -329,39 +343,14 @@
     [exporter exportAsynchronouslyWithCompletionHandler:^{
         
         dispatch_async(dispatch_get_main_queue(), ^{
-            switch (exporter.status) {
-                case AVAssetExportSessionStatusUnknown: {
-                    NSLog(@"AVAssetExportSessionStatusUnknown");
-                }  break;
-                case AVAssetExportSessionStatusWaiting: {
-                    NSLog(@"AVAssetExportSessionStatusWaiting");
-                }  break;
-                case AVAssetExportSessionStatusExporting: {
-                    NSLog(@"AVAssetExportSessionStatusExporting");
-                }  break;
-                case AVAssetExportSessionStatusCompleted: {
-                    NSLog(@"AVAssetExportSessionStatusCompleted");
-                    if ([kFileManager fileExistsAtPath:weakSelf.downloadMediaPath]) {
-                        [kFileManager removeItemAtPath:weakSelf.downloadMediaPath error:nil];
-                    }
-                    if (weakSelf.completionHandler) {
-                        weakSelf.completionHandler(nil);
-                    }
-                }  break;
-                case AVAssetExportSessionStatusFailed: {
-                    NSLog(@"AVAssetExportSessionStatusFailed");
-                    if (weakSelf.completionHandler) {
-                        weakSelf.completionHandler([NSError errorWithDomain:@"_YJMediaCutterErrorDamain" code:110 userInfo:@{NSLocalizedDescriptionKey:@"导出失败"}]);
-                    }
-                }  break;
-                case AVAssetExportSessionStatusCancelled: {
-                    NSLog(@"AVAssetExportSessionStatusCancelled");
-                    if (weakSelf.completionHandler) {
-                        weakSelf.completionHandler([NSError errorWithDomain:@"_YJMediaCutterErrorDamain" code:110 userInfo:@{NSLocalizedDescriptionKey:@"导出被取消"}]);
-                    }
-                }  break;
-                default: break;
+            
+            if ([kFileManager fileExistsAtPath:weakSelf.downloadMediaPath]) {
+                [kFileManager removeItemAtPath:weakSelf.downloadMediaPath error:nil];
             }
+            if (weakSelf.completionHandler) {
+                weakSelf.completionHandler(exporter.error);
+            }
+            
         });
     }];
 }
@@ -445,14 +434,14 @@
 }
 - (NSString *)downloadMediaPath{
     NSString *name = [self.mediaName componentsSeparatedByString:@"."].firstObject;
-    NSString *path = [self.mediaDir stringByAppendingPathComponent:[NSString stringWithFormat:@"%@_orgin.%@",name,self.mediaExtName]];
+    NSString *path = [self.mediaDir stringByAppendingPathComponent:[NSString stringWithFormat:@"%@-%@_orgin.%@",self.mediaID,name,self.mediaExtName]];
     return path;
 }
 - (NSString *)outPutFilePath{
     NSString *outPutFilePath = [NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES) firstObject];
     NSString *folderName = [outPutFilePath stringByAppendingPathComponent:@"YJMediaCutter"];
     BOOL isCreateSuccess = [kFileManager createDirectoryAtPath:folderName withIntermediateDirectories:YES attributes:nil error:nil];
-    if (isCreateSuccess) outPutFilePath = [folderName stringByAppendingPathComponent:self.mediaName];
+    if (isCreateSuccess) outPutFilePath = [folderName stringByAppendingPathComponent:[NSString stringWithFormat:@"%@-%@",self.mediaID,self.mediaName]];
     return outPutFilePath;
 }
 @end

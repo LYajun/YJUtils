@@ -16,7 +16,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,assign) NSTimeInterval cutStartTime;
 /** 剪辑结束时间 */
 @property (nonatomic,assign) NSTimeInterval cutEndTime;
-
+/** 媒体ID,确保唯一性 */
+@property (nonatomic,copy) NSString *mediaID;
 
 
 + (YJMediaCutter *)shareMediaCutter;
