@@ -39,6 +39,7 @@
 
 
 @property (nonatomic,copy) void (^ _Nullable completionHandler) (NSError * _Nullable error);
+@property (nonatomic,copy) void (^ _Nullable cutProgressHandler) (CGFloat progress);
 @end
 @implementation YJMediaCutter
 + (YJMediaCutter *)shareMediaCutter{
@@ -70,6 +71,10 @@
     self.completionHandler = completionHandler;
     self.isVideoCut = YES;
     [self startDownloadMedia];
+}
+- (void)videoCutWithCompletionHandler:(void (^)(NSError * _Nullable))completionHandler cutProgressHandler:(void (^)(CGFloat))cutProgressHandler{
+    self.cutProgressHandler = cutProgressHandler;
+    [self videoCutWithCompletionHandler:completionHandler];
 }
 - (void)videoSrtCutWithSrtInfo:(NSDictionary *)srtInfo completionHandler:(void (^)(NSDictionary * _Nullable))completionHandler{
     NSMutableDictionary *dic = [NSMutableDictionary dictionaryWithDictionary:srtInfo];
@@ -259,6 +264,10 @@
     self.isVideoCut = NO;
     [self startDownloadMedia];
 }
+- (void)audioCutWithCompletionHandler:(void (^)(NSError * _Nullable))completionHandler cutProgressHandler:(void (^)(CGFloat))cutProgressHandler{
+    self.cutProgressHandler = cutProgressHandler;
+    [self audioCutWithCompletionHandler:completionHandler];
+}
 - (void)audioLrcCutWithLrcInfo:(NSDictionary *)lrcInfo completionHandler:(void (^)(NSDictionary * _Nullable))completionHandler{
     NSMutableDictionary *dic = [NSMutableDictionary dictionaryWithDictionary:lrcInfo];
     NSMutableArray *srtArr = [dic objectForKey:@"srtList"];
@@ -402,7 +411,10 @@
  bytesWritten:本次下载的文件数据大小
  */
 - (void)URLSession:(NSURLSession *)session downloadTask:(nonnull NSURLSessionDownloadTask *)downloadTask didWriteData:(int64_t)bytesWritten totalBytesWritten:(int64_t)totalBytesWritten totalBytesExpectedToWrite:(int64_t)totalBytesExpectedToWrite{
-    
+    if (self.cutProgressHandler) {
+        CGFloat progress = (float)totalBytesWritten/(float)totalBytesExpectedToWrite;
+        self.cutProgressHandler(progress);
+    }
 }
 /** 下载请求出错 */
 - (void)URLSession:(NSURLSession *)session didBecomeInvalidWithError:(nullable NSError *)error{

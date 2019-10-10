@@ -23,9 +23,11 @@ NS_ASSUME_NONNULL_BEGIN
 + (YJMediaCutter *)shareMediaCutter;
 
 - (void)videoCutWithCompletionHandler:(void (^ _Nullable) (NSError * _Nullable error))completionHandler;
+- (void)videoCutWithCompletionHandler:(void (^ _Nullable) (NSError * _Nullable error))completionHandler cutProgressHandler:(void (^ _Nullable) (CGFloat progress))cutProgressHandler;
 - (void)videoSrtCutWithSrtInfo:(NSDictionary *)srtInfo completionHandler:(void (^ _Nullable) (NSDictionary * _Nullable srtInfo))completionHandler;
 
 - (void)audioCutWithCompletionHandler:(void (^ _Nullable) (NSError * _Nullable error))completionHandler;
+- (void)audioCutWithCompletionHandler:(void (^ _Nullable) (NSError * _Nullable error))completionHandler cutProgressHandler:(void (^ _Nullable) (CGFloat progress))cutProgressHandler;
 - (void)audioLrcCutWithLrcInfo:(NSDictionary *)lrcInfo completionHandler:(void (^ _Nullable) (NSDictionary * _Nullable lrcInfo))completionHandler;
 
 - (NSString *)outPutFilePath;
