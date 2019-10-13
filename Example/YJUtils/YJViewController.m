@@ -61,11 +61,15 @@
         }
     }];
 }
+// 低质量：http://192.168.129.129:10104//lgRs/bb43382113a0465d893eb4a0dd3587cc/cd4916e373e445e7b3422c44ab41c507.mp4
+
+// 中质量：http:/192.168.129.130:10103/lgRs/4c11215be924473e80275765fedd0519/9f2f4fc1f74247df9b1b17ed8cefca0a.mp4
 - (void)testVideoMediaCutter{
-    NSString *urlStr = @"http:/192.168.129.130:10103/lgRs/4c11215be924473e80275765fedd0519/9f2f4fc1f74247df9b1b17ed8cefca0a.mp4";
+    NSString *urlStr = @"http://192.168.129.129:10104//lgRs/bb43382113a0465d893eb4a0dd3587cc/cd4916e373e445e7b3422c44ab41c507.mp4";
     [YJMediaCutter shareMediaCutter].mediaUrl = urlStr;
-    [YJMediaCutter shareMediaCutter].cutStartTime = 10;
-    [YJMediaCutter shareMediaCutter].cutEndTime = 20;
+    [YJMediaCutter shareMediaCutter].cutStartTime = 28;
+    [YJMediaCutter shareMediaCutter].cutEndTime = 78;
+    [YJMediaCutter shareMediaCutter].mediaID  = @"1212";
     [LGAlert showIndeterminate];
     [[YJMediaCutter shareMediaCutter] videoCutWithCompletionHandler:^(NSError * _Nullable error) {
         if (error) {
@@ -104,7 +108,7 @@
     [self.audioPlayer seekToSecondTime:_audioPlayer.totalDuration * sender.value];
 }
 - (IBAction)play:(id)sender {
-    [self testAudioMediaCutter];
+    [self testVideoMediaCutter];
 //    [self testAudioMerger];
 //    [self.audioPlayer play];
 }

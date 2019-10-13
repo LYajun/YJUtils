@@ -33,8 +33,7 @@
 @property (nonatomic,copy) NSString *mediaName;
 /** 媒体扩展名 */
 @property (nonatomic,copy) NSString *mediaExtName;
-/** 媒体剪辑文件夹路径 */
-@property (nonatomic,copy) NSString *mediaDir;
+
 
 
 
@@ -107,7 +106,7 @@
     }
     completionHandler(dic);
 }
-- (void)startVideoCut{
+- (void)startVideoCutWithPresetName:(NSString *)presetName{
     NSURL *mediaFileURL = [NSURL fileURLWithPath:self.downloadMediaPath];
     
     AVMutableComposition *composition = [AVMutableComposition composition];
@@ -118,8 +117,9 @@
     //素材的音频轨
     AVAssetTrack *audioAssertTrack = [[videoAsset tracksWithMediaType:AVMediaTypeAudio] firstObject];
     
-    NSArray *presets = [AVAssetExportSession exportPresetsCompatibleWithAsset:composition];
-    NSString *presetName = AVAssetExportPresetMediumQuality;
+    
+    NSArray *presets = [AVAssetExportSession exportPresetsCompatibleWithAsset:videoAsset];
+    
     if (![presets containsObject:presetName]) {
         if (self.completionHandler) {
             self.completionHandler([NSError errorWithDomain:@"_YJMediaCutterErrorDamain" code:110 userInfo:@{NSLocalizedDescriptionKey:[NSString stringWithFormat:@"当前设备不支持该预设:%@", presetName]}]);
@@ -165,11 +165,15 @@
     [exporter exportAsynchronouslyWithCompletionHandler:^{
         
         dispatch_async(dispatch_get_main_queue(), ^{
-            if ([kFileManager fileExistsAtPath:weakSelf.downloadMediaPath]) {
-                [kFileManager removeItemAtPath:weakSelf.downloadMediaPath error:nil];
-            }
-            if (weakSelf.completionHandler) {
-                weakSelf.completionHandler(exporter.error);
+            if (exporter.error && [presetName isEqualToString:AVAssetExportPresetMediumQuality]) {
+                [weakSelf startVideoCutWithPresetName:AVAssetExportPresetLowQuality];
+            }else{
+                if ([kFileManager fileExistsAtPath:weakSelf.downloadMediaPath]) {
+                    [kFileManager removeItemAtPath:weakSelf.downloadMediaPath error:nil];
+                }
+                if (weakSelf.completionHandler) {
+                    weakSelf.completionHandler(exporter.error);
+                }
             }
         });
     }];
@@ -201,7 +205,7 @@
 // 获取优化后的视频转向信息
 - (AVMutableVideoComposition *)fixedCompositionWithAsset:(AVAsset *)videoAsset degrees:(int)degrees {
     AVMutableVideoComposition *videoComposition = [AVMutableVideoComposition videoComposition];
-    if (degrees >= 0) {
+    if (degrees > 0) {
         CGAffineTransform translateToCenter;
         CGAffineTransform mixedTransform;
         videoComposition.frameDuration = CMTimeMake(1, 30);
@@ -398,7 +402,7 @@
     // 将下载在临时文件里的文件移至相对应的文件。
     [[NSFileManager defaultManager] moveItemAtPath:location.path toPath:self.downloadMediaPath error:nil];
     if (self.isVideoCut) {
-        [self startVideoCut];
+        [self startVideoCutWithPresetName:AVAssetExportPresetMediumQuality];
     }else{
         [self startAudioCut];
     }
@@ -438,11 +442,12 @@
     return _session;
 }
 - (NSString *)mediaDir{
-    if (!_mediaDir) {
-        NSString *libraryDir = [NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES) firstObject];
-        _mediaDir = [libraryDir stringByAppendingPathComponent:@"YJMediaCutter"];
+    NSString *libraryDir = [NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES) firstObject];
+    NSString *mediaDir = [libraryDir stringByAppendingPathComponent:@"YJMediaCutter"];
+    if (![kFileManager fileExistsAtPath:mediaDir]) {
+        [[NSFileManager defaultManager] createDirectoryAtPath:mediaDir withIntermediateDirectories:YES attributes:nil error:nil];
     }
-    return _mediaDir;
+    return mediaDir;
 }
 - (NSString *)downloadMediaPath{
     NSString *name = [self.mediaName componentsSeparatedByString:@"."].firstObject;
@@ -450,10 +455,7 @@
     return path;
 }
 - (NSString *)outPutFilePath{
-    NSString *outPutFilePath = [NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES) firstObject];
-    NSString *folderName = [outPutFilePath stringByAppendingPathComponent:@"YJMediaCutter"];
-    BOOL isCreateSuccess = [kFileManager createDirectoryAtPath:folderName withIntermediateDirectories:YES attributes:nil error:nil];
-    if (isCreateSuccess) outPutFilePath = [folderName stringByAppendingPathComponent:[NSString stringWithFormat:@"%@-%@",self.mediaID,self.mediaName]];
+    NSString *outPutFilePath = [self.mediaDir stringByAppendingPathComponent:[NSString stringWithFormat:@"%@-%@",self.mediaID,self.mediaName]];
     return outPutFilePath;
 }
 @end

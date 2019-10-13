@@ -15,13 +15,13 @@ PODS:
     - TFHpple
   - YJExtensions/UIKit (1.1.7):
     - YJExtensions/Foundation
-  - YJUtils (1.0.6):
-    - YJUtils/YJAudioMerger (= 1.0.6)
-    - YJUtils/YJAudioPlayer (= 1.0.6)
-    - YJUtils/YJMediaCutter (= 1.0.6)
-  - YJUtils/YJAudioMerger (1.0.6)
-  - YJUtils/YJAudioPlayer (1.0.6)
-  - YJUtils/YJMediaCutter (1.0.6)
+  - YJUtils (1.0.7):
+    - YJUtils/YJAudioMerger (= 1.0.7)
+    - YJUtils/YJAudioPlayer (= 1.0.7)
+    - YJUtils/YJMediaCutter (= 1.0.7)
+  - YJUtils/YJAudioMerger (1.0.7)
+  - YJUtils/YJAudioPlayer (1.0.7)
+  - YJUtils/YJMediaCutter (1.0.7)
 
 DEPENDENCIES:
   - LGAlertHUD (= 1.1.1)
@@ -43,7 +43,7 @@ SPEC CHECKSUMS:
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   TFHpple: a916fe0799eb30aa29b2670d14d5868cdd3a5b81
   YJExtensions: ceb71a840c3276cd4f9d100884de9b0e4dea67f7
-  YJUtils: a5657ea2009c06dc14c34112b25731b7015c3f5b
+  YJUtils: f878b25741a66e94f09b57f7c96add6b6f1dfc78
 
 PODFILE CHECKSUM: a324ebd6dbd27e20456395316542eb48c4944391
 

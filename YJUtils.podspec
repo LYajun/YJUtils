@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'YJUtils'
-  s.version          = '1.0.6'
+  s.version          = '1.0.7'
   s.summary          = '工具类'
 
   s.description      = <<-DESC
