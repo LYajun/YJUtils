@@ -83,24 +83,40 @@
         for (NSDictionary *srt in srtArr) {
             CGFloat beginTime = [[srt objectForKey:@"beginTime"] doubleValue];
             CGFloat endTime = [[srt objectForKey:@"endTime"] doubleValue];
-            if ((endTime > self.cutStartTime && endTime <= self.cutEndTime) ||
-                (beginTime >= self.cutStartTime && beginTime < self.cutEndTime)) {
+            
+            if (!self.isAllContain) {
                 
-                NSMutableDictionary *srt_m = [NSMutableDictionary dictionaryWithDictionary:srt];
-                if (beginTime > self.cutStartTime) {
+                if (beginTime >= self.cutStartTime && endTime <= self.cutEndTime) {
+                    NSMutableDictionary *srt_m = [NSMutableDictionary dictionaryWithDictionary:srt];
                     beginTime = beginTime - self.cutStartTime;
-                }else{
-                    beginTime = 0;
-                }
-                if (endTime > self.cutEndTime) {
-                    endTime = self.cutEndTime - self.cutStartTime;
-                }else{
                     endTime = endTime - self.cutStartTime;
+                    [srt_m setObject:@(beginTime) forKey:@"beginTime"];
+                    [srt_m setObject:@(endTime) forKey:@"endTime"];
+                    [arr addObject:srt_m];
                 }
-                [srt_m setObject:@(beginTime) forKey:@"beginTime"];
-                [srt_m setObject:@(endTime) forKey:@"endTime"];
-                [arr addObject:srt_m];
+                
+            }else{
+                if ((endTime > self.cutStartTime && endTime <= self.cutEndTime) ||
+                    (beginTime >= self.cutStartTime && beginTime < self.cutEndTime)) {
+                    
+                    NSMutableDictionary *srt_m = [NSMutableDictionary dictionaryWithDictionary:srt];
+                    if (beginTime > self.cutStartTime) {
+                        beginTime = beginTime - self.cutStartTime;
+                    }else{
+                        beginTime = 0;
+                    }
+                    if (endTime > self.cutEndTime) {
+                        endTime = self.cutEndTime - self.cutStartTime;
+                    }else{
+                        endTime = endTime - self.cutStartTime;
+                    }
+                    [srt_m setObject:@(beginTime) forKey:@"beginTime"];
+                    [srt_m setObject:@(endTime) forKey:@"endTime"];
+                    [arr addObject:srt_m];
+                }
+                
             }
+            
         }
         [dic setObject:arr forKey:@"srtList"];
     }
@@ -280,34 +296,58 @@
         for (int i = 0 ; i < srtArr.count; i++) {
             NSDictionary *srt = srtArr[i];
             CGFloat beginTime = [[srt objectForKey:@"beginTime"] doubleValue];
-            if (i == srtArr.count-1) {
-                if ((beginTime > self.cutStartTime && beginTime < self.cutEndTime) ||
-                    beginTime == self.cutStartTime || beginTime == self.cutEndTime) {
-                    
-                    NSMutableDictionary *srt_m = [NSMutableDictionary dictionaryWithDictionary:srt];
-                    if (beginTime > self.cutStartTime) {
-                        beginTime = beginTime - self.cutStartTime;
-                    }else{
-                        beginTime = 0;
-                    }
-                    [srt_m setObject:@(beginTime) forKey:@"beginTime"];
-                    [arr addObject:srt_m];
-                }
-            }else{
-                NSDictionary *nextSrt = srtArr[i+1];
-                CGFloat endTime = [[nextSrt objectForKey:@"beginTime"] doubleValue];
-                if ((endTime > self.cutStartTime && endTime <= self.cutEndTime) ||
-                    (beginTime >= self.cutStartTime && beginTime < self.cutEndTime)) {
-                    NSMutableDictionary *srt_m = [NSMutableDictionary dictionaryWithDictionary:srt];
-                    if (beginTime > self.cutStartTime) {
-                        beginTime = beginTime - self.cutStartTime;
-                    }else{
-                        beginTime = 0;
-                    }
-                    [srt_m setObject:@(beginTime) forKey:@"beginTime"];
-                    [arr addObject:srt_m];
-                }
-            }
+            
+             if (!self.isAllContain) {
+                 if (i == srtArr.count-1) {
+                     if (beginTime >= self.cutStartTime && beginTime < self.cutEndTime) {
+                         
+                         NSMutableDictionary *srt_m = [NSMutableDictionary dictionaryWithDictionary:srt];
+                         beginTime = beginTime - self.cutStartTime;
+                         [srt_m setObject:@(beginTime) forKey:@"beginTime"];
+                         [arr addObject:srt_m];
+                     }
+                 }else{
+                     NSDictionary *nextSrt = srtArr[i+1];
+                     CGFloat endTime = [[nextSrt objectForKey:@"beginTime"] doubleValue];
+                     if (beginTime >= self.cutStartTime && endTime <= self.cutEndTime) {
+                         NSMutableDictionary *srt_m = [NSMutableDictionary dictionaryWithDictionary:srt];
+                         beginTime = beginTime - self.cutStartTime;
+                         [srt_m setObject:@(beginTime) forKey:@"beginTime"];
+                         [arr addObject:srt_m];
+                     }
+                 }
+             }else{
+                 if (i == srtArr.count-1) {
+                     if ((beginTime > self.cutStartTime && beginTime < self.cutEndTime) ||
+                         beginTime == self.cutStartTime || beginTime == self.cutEndTime) {
+                         
+                         NSMutableDictionary *srt_m = [NSMutableDictionary dictionaryWithDictionary:srt];
+                         if (beginTime > self.cutStartTime) {
+                             beginTime = beginTime - self.cutStartTime;
+                         }else{
+                             beginTime = 0;
+                         }
+                         [srt_m setObject:@(beginTime) forKey:@"beginTime"];
+                         [arr addObject:srt_m];
+                     }
+                 }else{
+                     NSDictionary *nextSrt = srtArr[i+1];
+                     CGFloat endTime = [[nextSrt objectForKey:@"beginTime"] doubleValue];
+                     if ((endTime > self.cutStartTime && endTime <= self.cutEndTime) ||
+                         (beginTime >= self.cutStartTime && beginTime < self.cutEndTime)) {
+                         NSMutableDictionary *srt_m = [NSMutableDictionary dictionaryWithDictionary:srt];
+                         if (beginTime > self.cutStartTime) {
+                             beginTime = beginTime - self.cutStartTime;
+                         }else{
+                             beginTime = 0;
+                         }
+                         [srt_m setObject:@(beginTime) forKey:@"beginTime"];
+                         [arr addObject:srt_m];
+                     }
+                 }
+                 
+             }
+            
         }
         [dic setObject:arr forKey:@"srtList"];
     }
