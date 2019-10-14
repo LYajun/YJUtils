@@ -309,7 +309,7 @@
                  }else{
                      NSDictionary *nextSrt = srtArr[i+1];
                      CGFloat endTime = [[nextSrt objectForKey:@"beginTime"] doubleValue];
-                     if (beginTime >= self.cutStartTime && endTime <= self.cutEndTime) {
+                     if (beginTime >= self.cutStartTime && endTime >= self.cutEndTime) {
                          NSMutableDictionary *srt_m = [NSMutableDictionary dictionaryWithDictionary:srt];
                          beginTime = beginTime - self.cutStartTime;
                          [srt_m setObject:@(beginTime) forKey:@"beginTime"];
