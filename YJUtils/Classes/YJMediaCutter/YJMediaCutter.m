@@ -155,7 +155,7 @@
     [audioCompositionTrack insertTimeRange: CMTimeRangeMake(CMTimeMakeWithSeconds(cutStartTime, videoAssetTrack.timeRange.duration.timescale), CMTimeMakeWithSeconds(cutEndTime-cutStartTime, videoAssetTrack.timeRange.duration.timescale)) ofTrack:audioAssertTrack atTime:kCMTimeZero error:nil];
     
     AVAssetExportSession *exporter = [[AVAssetExportSession alloc] initWithAsset:composition presetName:presetName];
-    exporter.outputURL = [NSURL fileURLWithPath:self.outPutFilePath isDirectory:YES];
+    exporter.outputURL = [NSURL fileURLWithPath:self.outPutFilePath];
     exporter.outputFileType = AVFileTypeMPEG4;
     exporter.shouldOptimizeForNetworkUse = YES;
     NSArray *supportedTypeArray = exporter.supportedFileTypes;
@@ -377,7 +377,7 @@
     [audioCompositionTrack insertTimeRange: CMTimeRangeMake(CMTimeMakeWithSeconds(cutStartTime, audioAssertTrack.timeRange.duration.timescale), CMTimeMakeWithSeconds(cutEndTime-cutStartTime, audioAssertTrack.timeRange.duration.timescale)) ofTrack:audioAssertTrack atTime:kCMTimeZero error:nil];
     
     AVAssetExportSession *exporter = [[AVAssetExportSession alloc] initWithAsset:composition presetName:AVAssetExportPresetAppleM4A];
-    exporter.outputURL = [NSURL fileURLWithPath:self.outPutFilePath isDirectory:YES];
+    exporter.outputURL = [NSURL fileURLWithPath:self.outPutFilePath];
     exporter.outputFileType = AVFileTypeAppleM4A;
     exporter.shouldOptimizeForNetworkUse = YES;
     NSArray *supportedTypeArray = exporter.supportedFileTypes;

@@ -47,11 +47,16 @@
     [self.slider addTarget:self action:@selector(sliderTouchUpOutside) forControlEvents:UIControlEventTouchUpOutside];
     [self.slider addTarget:self action:@selector(sliderValueChanged:) forControlEvents:UIControlEventValueChanged];
 }
+// http:/192.168.129.130:10103/lgRs/b0e138098e074d6a928701c9f1c43ec9/84fccdd2232540bd9c3f02f142ae4652.mp3
+
+
+// http:/172.16.41.183:10103/lgRs/dee5594a3e604241918fec3d5da5573f/13f0fdcd031d43b399e330680bd9cd90.mp3
 - (void)testAudioMediaCutter{
-    NSString *urlStr = @"http:/192.168.129.130:10103/lgRs/b0e138098e074d6a928701c9f1c43ec9/84fccdd2232540bd9c3f02f142ae4652.mp3";
+    NSString *urlStr = @"http:/172.16.41.183:10103/lgRs/dee5594a3e604241918fec3d5da5573f/13f0fdcd031d43b399e330680bd9cd90.mp3";
     [YJMediaCutter shareMediaCutter].mediaUrl = urlStr;
-    [YJMediaCutter shareMediaCutter].cutStartTime = 3;
-    [YJMediaCutter shareMediaCutter].cutEndTime = 13;
+    [YJMediaCutter shareMediaCutter].cutStartTime = 0;
+    [YJMediaCutter shareMediaCutter].cutEndTime = 90.949996948242188;
+    [YJMediaCutter shareMediaCutter].mediaID  = @"1221";
     [LGAlert showIndeterminate];
     [[YJMediaCutter shareMediaCutter] audioCutWithCompletionHandler:^(NSError * _Nullable error) {
         if (error) {
@@ -108,7 +113,7 @@
     [self.audioPlayer seekToSecondTime:_audioPlayer.totalDuration * sender.value];
 }
 - (IBAction)play:(id)sender {
-    [self testVideoMediaCutter];
+    [self testAudioMediaCutter];
 //    [self testAudioMerger];
 //    [self.audioPlayer play];
 }
